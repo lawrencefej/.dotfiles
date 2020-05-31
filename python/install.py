@@ -37,6 +37,7 @@ plugin.ChangeUserDefaultShell(user, shell)
 plugin.CreateDir(zshconfig)
 
 # Create history file
+plugin.CreateDir(zshcache)
 plugin.CreateFile(".zsh_history", zshcache)
 
 # Install plugins
