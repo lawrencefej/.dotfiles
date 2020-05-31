@@ -21,9 +21,9 @@ class Config:
 # Install required packages
 def InstallPackages(packageList):
     for p in packageList:
-        if (os.system("rpm -q " + p) != 0):
+        if (os.system("dpkg -s " + p) != 0):
             print("Installing " + p)
-            if (os.system("sudo dnf -y install " + p) == 0):
+            if (os.system("sudo apt -y install " + p) == 0):
                 print(p + " is installed")
             else:
                 print(p + " was not installed")

@@ -27,7 +27,7 @@ plugins.append(plugin.Plugin("zsh-syntax-highlight",
 
 
 # Install required packages
-pckgarr = ["zsh", "stow", "util-linux-user"]
+pckgarr = ["zsh", "stow"]
 plugin.InstallPackages(pckgarr)
 
 # Change user default shell to zsh
