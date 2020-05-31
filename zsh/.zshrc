@@ -27,10 +27,10 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Themes/plugins
-source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.config/zsh/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

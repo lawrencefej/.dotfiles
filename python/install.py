@@ -19,7 +19,7 @@ plugins = []
 plugins.append(plugin.Plugin("powerlevel10k",
                              "--depth=1 https://github.com/romkatv/powerlevel10k.git"))
 plugins.append(plugin.Plugin("zsh-autosuggestions",
-                             "https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions"))
+                             "https://github.com/zsh-users/zsh-autosuggestions"))
 plugins.append(plugin.Plugin("zsh-history-substring-search",
                              "https://github.com/zsh-users/zsh-history-substring-search"))
 plugins.append(plugin.Plugin("zsh-syntax-highlight",
