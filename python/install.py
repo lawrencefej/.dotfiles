@@ -10,18 +10,9 @@ home = os.environ['HOME']
 path = home + "/.config/zsh/"
 clone = "git clone "
 zshcache = home + "/.cache/zsh/"
+zshconfig = home + "/.config/zsh/"
 shell = os.environ['SHELL']
 user = os.environ["USER"]
-
-if (shell != "/usr/bin/zsh"):
-    os.system("sudo chsh -s /bin/zsh " + user)
-
-
-# Create history file
-historyfile = zshcache + ".zsh_history"
-pathlib.Path(zshcache).mkdir(parents=True, exist_ok=True)
-new_file = open(historyfile, 'w')
-new_file.close()
 
 
 # Install required packages
@@ -35,6 +26,18 @@ for p in pckgarr:
         else:
             print(p + " was not installed")
 
+# Change user default shell to zsh
+if (shell != "/usr/bin/zsh"):
+    os.system("sudo chsh -s /bin/zsh " + user)
+
+# Create zsh config folder
+pathlib.Path(zshconfig).mkdir(parents=True, exist_ok=True)
+
+# Create history file
+historyfile = zshcache + ".zsh_history"
+pathlib.Path(zshcache).mkdir(parents=True, exist_ok=True)
+new_file = open(historyfile, 'w')
+new_file.close()
 
 # Install plugins
 for p in plugin.plugins:
