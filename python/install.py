@@ -15,43 +15,47 @@ shell = os.environ['SHELL']
 user = os.environ["USER"]
 
 
+plugins = []
+plugins.append(plugin.Plugin("powerlevel10k",
+                             "--depth=1 https://github.com/romkatv/powerlevel10k.git"))
+plugins.append(plugin.Plugin("zsh-autosuggestions",
+                             "https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions"))
+plugins.append(plugin.Plugin("zsh-history-substring-search",
+                             "https://github.com/zsh-users/zsh-history-substring-search"))
+plugins.append(plugin.Plugin("zsh-syntax-highlight",
+                             "https://github.com/zsh-users/zsh-syntax-highlighting.git"))
+
+
 # Install required packages
 pckgarr = ["zsh", "stow", "util-linux-user"]
-
-for p in pckgarr:
-    if (os.system("rpm -q " + p) != 0):
-        print("Installing" + p)
-        if (os.system("sudo dnf -y install " + p) == 0):
-            print(p + " is installed")
-        else:
-            print(p + " was not installed")
+plugin.InstallPackages(pckgarr)
 
 # Change user default shell to zsh
-if (shell != "/usr/bin/zsh"):
-    os.system("sudo chsh -s /bin/zsh " + user)
+plugin.ChangeUserDefaultShell(user, shell)
 
 # Create zsh config folder
-pathlib.Path(zshconfig).mkdir(parents=True, exist_ok=True)
+plugin.CreateDir(zshconfig)
 
 # Create history file
-historyfile = zshcache + ".zsh_history"
-pathlib.Path(zshcache).mkdir(parents=True, exist_ok=True)
-new_file = open(historyfile, 'w')
-new_file.close()
+plugin.CreateFile(".zsh_history", zshcache)
 
 # Install plugins
-for p in plugin.plugins:
-    if os.path.isdir(path + p.name):
-        print(p.name + " is already installed, skipping")
-        print()
-    else:
-        print("Installing " + p.name + "from " + p.url)
-        os.chdir(path)
-        os.system(clone + p.url)
-        print(p.name + "installed successfully")
+plugin.InstallPlugins(clone, path, plugins)
+
+# Rename the bash and git files
+stows = []
+stows.append(plugin.Config("bash", home + "/.bashrc"))
+stows.append(plugin.Config("bash", home + "/.bash_profile"))
+stows.append(plugin.Config("git", home + "/.gitconfig"))
+stows.append(plugin.Config("htop", home + "/.config/htop/" + "htoprc"))
+stows.append(plugin.Config("p10k", home + "/.p10k.zsh"))
+stows.append(plugin.Config("zsh", home + "/.zshrc"))
 
 # create symlinks with stow
-stowlist = ["bash", "git", "htop", "p10k", "zsh"]
-
-for s in stowlist:
-    os.system("stow -vSt " + home + " -d " + home + "/.dotfiles/ " + s)
+for p in stows:
+    if os.path.isfile(p.configPath):
+        print(p.name + "  exists")
+        plugin.DeleteFile(p.configPath)
+    else:
+        print(p.name + " does not exist")
+    plugin.CreateSymLink(home, p.name)
