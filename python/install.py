@@ -10,10 +10,15 @@ home = os.environ['HOME']
 path = home + "/.config/zsh/"
 clone = "git clone "
 zshcache = home + "/.cache/zsh/"
+shell = os.environ['SHELL']
+user = os.environ["USER"]
+
+if (shell != "/usr/bin/zsh"):
+    os.system("sudo chsh -s /bin/zsh " + user)
 
 
 # Install required packages
-pckgarr = ["stow"]
+pckgarr = ["zsh", "stow", "util-linux-user"]
 
 for p in pckgarr:
     if (os.system("rpm -q " + p) != 0):
