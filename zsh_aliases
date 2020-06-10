@@ -1,0 +1,16 @@
+alias cls='clear'
+alias df='df -h'
+alias pings='ping -c 5'
+alias ip='ip -c'
+alias nanos='sudo nano'
+
+
+
+# stow (th stands for target=home)
+stowth() {
+  stow -vSt ~ $1
+}
+
+unstowth() {
+  stow -vDt ~ $1
+}

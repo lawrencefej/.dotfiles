@@ -32,7 +32,12 @@ source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Aliases
+source ~/.config/zsh/aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+#export DISPLAY=172.30.236.199:0.0
+export DISPLAY=192.168.10.150:0.0
+export GDK_SCALE=2
+export LIBGL_ALWAYS_INDIRECT=1
