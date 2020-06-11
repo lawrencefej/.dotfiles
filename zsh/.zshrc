@@ -12,6 +12,9 @@ setopt COMPLETE_ALIASES
 zstyle ':completion::complete:*' gain-privileges 1
 
 # Paths
+PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH
+
 path+=('/home/lawrence/.cargo/bin')
 
 # Created by newuser for 5.5.1
@@ -33,11 +36,9 @@ source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.z
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases
-source ~/.config/zsh/aliases
+source ~/.config/zsh/aliases.zsh
+source ~/.dotfiles/aliases/functions.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-#export DISPLAY=172.30.236.199:0.0
-export DISPLAY=192.168.10.150:0.0
-export GDK_SCALE=2
-export LIBGL_ALWAYS_INDIRECT=1
+
