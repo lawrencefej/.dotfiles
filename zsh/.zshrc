@@ -15,6 +15,7 @@ zstyle ':completion::complete:*' gain-privileges 1
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
 
+# path+=('/home/lawrence/.local/bin')
 path+=('/home/lawrence/.cargo/bin')
 
 # Created by newuser for 5.5.1

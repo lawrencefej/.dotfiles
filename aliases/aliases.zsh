@@ -11,10 +11,10 @@ alias j='jobs -l'
 alias ports='netstat -tulanp'
 
 alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
+alias .5='cd ../../../../../'
 
 # Do not wait interval 1 second, go fast #
 alias pingfast='ping -c 100 -s.2'
