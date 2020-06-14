@@ -4,7 +4,7 @@ start () {
     return
 }
 
-export -f start
+#export -f start
 
 # function to restart service
 restart () {
@@ -12,7 +12,7 @@ restart () {
     return
 }
 
-export -f restart
+#export -f restart
 
 # function to enable service
 enable () {
@@ -20,7 +20,7 @@ enable () {
     return
 }
 
-export -f enable
+#export -f enable
 
 # function to check service status
 appstatus () {
@@ -28,7 +28,7 @@ appstatus () {
     return
 }
 
-export -f appstatus
+#export -f appstatus
 
 # function to stop service
 stop () {
@@ -36,7 +36,7 @@ stop () {
     return
 }
 
-export -f stop
+#export -f stop
 
 # function to disable service
 disable () {
@@ -44,4 +44,4 @@ disable () {
     return
 }
 
-export -f disable
+#export -f disable
