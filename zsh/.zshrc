@@ -37,8 +37,8 @@ source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.z
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases
-source ~/.config/zsh/aliases.zsh
-source ~/.dotfiles/aliases/functions.zsh
+source ~/.config/.dotfiles/aliases.zsh
+source ~/.config/.dotfiles/aliases/functions.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
