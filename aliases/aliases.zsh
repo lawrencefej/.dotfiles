@@ -19,9 +19,12 @@ alias .5='cd ../../../../../'
 # Do not wait interval 1 second, go fast #
 alias pingfast='ping -c 100 -s.2'
 
-alias ls='ls -lha --color=auto --group-directories-first'
+#alias ls='ls -lha --color=auto --group-directories-first'
+alias ls='lsd -al'
 alias ll='ls -la'
 alias l.='ls -d .* --color=auto'
+alias tree='lsd --tree'
+
 
 # reboot / halt / poweroff
 alias reboot='sudo /sbin/reboot'

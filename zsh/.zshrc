@@ -19,6 +19,8 @@ export PATH
 path+=('/home/lawrence/.cargo/bin')
 
 # Created by newuser for 5.5.1
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 # History in cache directory
 HISTSIZE=10000
