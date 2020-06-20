@@ -46,6 +46,10 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
 
+# Source zshrc
+alias zsource='source ~/.zshrc'
+
+
 
 
 # stow (th stands for target=home)

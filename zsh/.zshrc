@@ -33,6 +33,7 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Themes/plugins
+. $HOME/.config/.asdf/asdf.sh
 source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -41,6 +42,7 @@ source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Aliases
 source ~/.config/.dotfiles/aliases/aliases.zsh
 source ~/.config/.dotfiles/aliases/functions.zsh
+source /home/lawrence/.config/.dotfiles/aliases/debian_aliases.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
