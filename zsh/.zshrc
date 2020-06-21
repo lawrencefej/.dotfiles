@@ -33,7 +33,7 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Themes/plugins
-. $HOME/.config/.asdf/asdf.sh
+. $HOME/.asdf/asdf.sh
 source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
