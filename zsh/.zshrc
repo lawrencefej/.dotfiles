@@ -79,6 +79,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH Plugins
 plugins=(
         git
+        node
+        npm
+        npx
+        nvm
         zsh-autosuggestions
         zsh-syntax-highlighting
         history-substring-search
