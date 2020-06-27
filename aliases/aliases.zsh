@@ -49,14 +49,5 @@ alias cpuinfo='lscpu'
 # Source zshrc
 alias zsource='source ~/.zshrc'
 
-
-
-
-# stow (th stands for target=home)
-stowth() {
-  stow -vSt ~ $1
-}
-
-unstowth() {
-  stow -vDt ~ $1
-}
+# Add color to TLDR
+alias tldr='-t base16'
