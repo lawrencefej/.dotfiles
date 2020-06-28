@@ -11,5 +11,3 @@ set noswapfile
 set undodir=~/.config/.vim/undodir
 set undofile
 set incsearch
-
-set colorcolumn=80
