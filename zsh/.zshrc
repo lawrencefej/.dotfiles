@@ -5,29 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# # Initialization code that may require console input (password prompts, [y/n]
-# # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 # autoload -Uz compinit
 # compinit
 # zstyle ':completion:*' menu select
 # setopt COMPLETE_ALIASES
 # zstyle ':completion::complete:*' gain-privileges 1
-
-# # Paths
-# PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-# export PATH
-
-# # path+=('/home/lawrence/.local/bin')
-# path+=('/home/lawrence/.cargo/bin')
-
-# # Created by newuser for 5.5.1
-# export VISUAL=vim
-# export EDITOR="$VISUAL"
 
 # # History in cache directory
 # HISTSIZE=10000
@@ -38,21 +20,6 @@ fi
 # bindkey   '^[[F'    end-of-line
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
-
-# # Themes/plugins
-# . $HOME/.asdf/asdf.sh
-# source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
-# source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-# source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# # Aliases
-# source ~/.config/.dotfiles/aliases/aliases.zsh
-# source ~/.config/.dotfiles/aliases/functions.zsh
-# source /home/lawrence/.config/.dotfiles/aliases/debian_aliases.zsh
-
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -79,6 +46,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH Plugins
 plugins=(
         git
+        zsh-nvm
         node
         npm
         npx
