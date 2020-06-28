@@ -16,10 +16,10 @@ fi
 # SAVEHIST=10000
 # HISTFILE=~/.cache/zsh/.zsh_history
 
-# bindkey   '^[[H'    beginning-of-line
-# bindkey   '^[[F'    end-of-line
-# bindkey '^[[A' history-substring-search-up
-# bindkey '^[[B' history-substring-search-down
+bindkey   '^[[H'    beginning-of-line
+bindkey   '^[[F'    end-of-line
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -42,6 +42,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
 
 # ZSH Plugins
 plugins=(
