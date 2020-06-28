@@ -50,4 +50,4 @@ alias cpuinfo='lscpu'
 alias zsource='source ~/.zshrc'
 
 # Add color to TLDR
-alias tldr='-t base16'
+alias tldr='tldr -t base16'
