@@ -5,22 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# autoload -Uz compinit
-# compinit
-# zstyle ':completion:*' menu select
-# setopt COMPLETE_ALIASES
-# zstyle ':completion::complete:*' gain-privileges 1
-
-# # History in cache directory
-# HISTSIZE=10000
-# SAVEHIST=10000
-# HISTFILE=~/.cache/zsh/.zsh_history
-
-bindkey   '^[[H'    beginning-of-line
-bindkey   '^[[F'    end-of-line
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -69,14 +53,20 @@ path+=('/home/lawrence/.cargo/bin')
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# zsh-syntax-highlighting key bindings
+bindkey   '^[[H'    beginning-of-line
+bindkey   '^[[F'    end-of-line
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # History in cache directory
 HISTSIZE=10000
 SAVEHIST=10000
 
 # BEGIN: ASDF
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# . $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/completions/asdf.bash
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
