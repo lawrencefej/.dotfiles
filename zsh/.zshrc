@@ -32,11 +32,6 @@ export NVM_AUTO_USE=true
 # ZSH Plugins
 plugins=(
         git
-        zsh-nvm
-        node
-        npm
-        npx
-        nvm
         zsh-autosuggestions
         zsh-syntax-highlighting
         history-substring-search
