@@ -11,11 +11,6 @@ fi
 # setopt COMPLETE_ALIASES
 # zstyle ':completion::complete:*' gain-privileges 1
 
-# # History in cache directory
-# HISTSIZE=10000
-# SAVEHIST=10000
-# HISTFILE=~/.cache/zsh/.zsh_history
-
 bindkey   '^[[H'    beginning-of-line
 bindkey   '^[[F'    end-of-line
 bindkey '^[[A' history-substring-search-up
@@ -74,9 +69,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # BEGIN: ASDF
-
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# . $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/completions/asdf.bash
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
