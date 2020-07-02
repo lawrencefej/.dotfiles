@@ -19,7 +19,6 @@ openport () {
     sudo firewall-cmd --reload
     return
 }
-#export -f openport
 
 
 # function to close Firewalld port
@@ -28,4 +27,3 @@ closeport () {
     sudo firewall-cmd --reload
     return
 }
-#export -f closeport

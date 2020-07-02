@@ -4,15 +4,11 @@ start () {
     return
 }
 
-#export -f start
-
 # function to restart service
 restart () {
     sudo systemctl restart $1
     return
 }
-
-#export -f restart
 
 # function to enable service
 enable () {
@@ -20,15 +16,11 @@ enable () {
     return
 }
 
-#export -f enable
-
 # function to check service status
 appstatus () {
     sudo systemctl status $1
     return
 }
-
-#export -f appstatus
 
 # function to stop service
 stop () {
@@ -36,12 +28,8 @@ stop () {
     return
 }
 
-#export -f stop
-
 # function to disable service
 disable () {
     sudo systemctl disable $1
     return
 }
-
-#export -f disable
