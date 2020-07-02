@@ -9,15 +9,11 @@ start () {
     return
 }
 
-export -f start
-
 # function to restart service
 restart () {
     sudo service $1 restart
     return
 }
-
-export -f restart
 
 # function to enable service
 enable () {
@@ -25,15 +21,11 @@ enable () {
     return
 }
 
-export -f enable
-
 # function to check service status
 appstatus () {
     sudo service $1 status
     return
 }
-
-export -f appstatus
 
 # function to stop service
 stop () {
@@ -41,20 +33,14 @@ stop () {
     return
 }
 
-export -f stop
-
 # function to disable service
 disable () {
     sudo systemctl disable $1
     return
 }
 
-export -f disable
-
 # function to list service
 servicelist () {
     sudo service --status-all
     return
 }
-
-export -f servicelist
