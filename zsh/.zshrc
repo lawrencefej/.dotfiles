@@ -76,5 +76,9 @@ source ~/.config/.dotfiles/aliases/aliases.zsh
 source ~/.config/.dotfiles/aliases/functions.zsh
 source ~/.config/.dotfiles/aliases/centos_aliases.zsh
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
