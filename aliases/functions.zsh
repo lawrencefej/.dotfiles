@@ -45,3 +45,8 @@ disable () {
 }
 
 #export -f disable
+
+# Create and cd into dir
+mkcd() {
+    mkdir $1 && cd $1
+}
