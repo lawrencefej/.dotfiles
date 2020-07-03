@@ -1,7 +1,7 @@
 #export DISPLAY=172.30.236.199:0.0
-export DISPLAY=192.168.10.150:0.0
-export GDK_SCALE=2
-export LIBGL_ALWAYS_INDIRECT=1
+#export DISPLAY=192.168.10.150:0.0
+#export GDK_SCALE=2
+#export LIBGL_ALWAYS_INDIRECT=1
 
 # function to start service
 start () {
