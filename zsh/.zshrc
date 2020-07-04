@@ -82,6 +82,7 @@ source ~/.config/.dotfiles/aliases/aliases.zsh
 source ~/.config/.dotfiles/aliases/functions.zsh
 source ~/.config/.dotfiles/aliases/debian_aliases.zsh
 source ~/.config/.dotfiles/aliases/wsl_aliases.zsh
+source ~/.config/.dotfiles/aliases/dotnet.zsh
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
