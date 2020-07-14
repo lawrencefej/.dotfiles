@@ -8,7 +8,7 @@ alias nanos='sudo nano'
 # handy short cuts #
 alias h='history'
 alias j='jobs -l'
-alias ports='netstat -tulanp'
+alias ports='sudo netstat -tulanp'
 
 alias ..='cd ..'
 alias ...='cd ../../'
@@ -51,3 +51,4 @@ alias zsource='source ~/.zshrc'
 
 # Add color to TLDR
 alias tldr='tldr -t base16'
+
