@@ -44,3 +44,9 @@ servicelist () {
     sudo service --status-all
     return
 }
+
+# function to export kubeconfig
+expkg () {
+    export KUBECONFIG=$1
+    return
+}

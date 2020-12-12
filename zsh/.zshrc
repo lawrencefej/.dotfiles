@@ -37,6 +37,7 @@ plugins=(
         npm
         npx
         nvm
+        kubectl
         zsh-autosuggestions
         zsh-syntax-highlighting
         history-substring-search
