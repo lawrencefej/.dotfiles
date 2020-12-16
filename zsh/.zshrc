@@ -32,12 +32,8 @@ export NVM_AUTO_USE=true
 # ZSH Plugins
 plugins=(
         git
-        zsh-nvm
         node
         npm
-        npx
-        nvm
-        kubectl
         zsh-autosuggestions
         zsh-syntax-highlighting
         history-substring-search
@@ -82,7 +78,7 @@ SAVEHIST=10000
 source ~/.config/.dotfiles/aliases/aliases.zsh
 source ~/.config/.dotfiles/aliases/functions.zsh
 source ~/.config/.dotfiles/aliases/debian_aliases.zsh
-source ~/.config/.dotfiles/aliases/wsl_aliases.zsh
+# source ~/.config/.dotfiles/aliases/wsl_aliases.zsh
 source ~/.config/.dotfiles/aliases/dotnet.zsh
 
 # FZF
