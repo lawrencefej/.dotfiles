@@ -52,3 +52,9 @@ alias zsource='source ~/.zshrc'
 # Add color to TLDR
 alias tldr='tldr -t base16'
 
+# Add ed25519 to k3sup
+alias k3sup='k3sup --user $USER --ssh-key $HOME/.ssh/id_ed25519'
+
+# Add bat to cat
+alias cat='batcat --paging=never'
+
