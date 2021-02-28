@@ -94,3 +94,7 @@ source ~/.config/.dotfiles/aliases/dotnet.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
+
+# For Loading the SSH key
+/usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
+source $HOME/.keychain/$HOST-sh
