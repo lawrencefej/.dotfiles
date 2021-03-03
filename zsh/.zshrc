@@ -35,7 +35,6 @@ plugins=(
         zsh-nvm
         node
         npm
-        npx
         nvm
         kubectl
         zsh-autosuggestions
