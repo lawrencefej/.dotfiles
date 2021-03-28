@@ -56,5 +56,5 @@ alias tldr='tldr -t base16'
 alias k3sup='k3sup --user $USER --ssh-key $HOME/.ssh/id_ed25519'
 
 # Add bat to cat
-alias cat='batcat --paging=never'
+alias cat='bat --paging=never'
 
