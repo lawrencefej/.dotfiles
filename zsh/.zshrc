@@ -81,7 +81,6 @@ SAVEHIST=10000
 # Aliases
 source ~/.config/.dotfiles/aliases/aliases.zsh
 source ~/.config/.dotfiles/aliases/functions.zsh
-source ~/.config/.dotfiles/aliases/debian_aliases.zsh
 source ~/.config/.dotfiles/aliases/wsl_aliases.zsh
 source ~/.config/.dotfiles/aliases/dotnet.zsh
 
@@ -95,6 +94,9 @@ source ~/.config/.dotfiles/aliases/dotnet.zsh
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
 
-# For Loading the SSH key
-/usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
-source $HOME/.keychain/$HOST-sh
+# For Loading the SSH key for wsl
+if [[ -n "$WSL_DISTRO_NAME" ]]; then
+  source ~/.config/.dotfiles/aliases/debian_aliases.zsh
+  /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
+  source $HOME/.keychain/$HOST-sh
+fi
