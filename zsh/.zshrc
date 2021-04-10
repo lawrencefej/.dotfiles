@@ -23,25 +23,54 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
+
 export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 
 # ZSH Plugins
-plugins=(
-        git
-        zsh-nvm
-        node
-        npm
-        nvm
-        kubectl
-        zsh-autosuggestions
-        zsh-syntax-highlighting
-        history-substring-search
-        )
+
+# plugins for server
+if [[ "$MACHINE_TYPE" == "server" ]]; then
+  plugins=(
+          git
+          node
+          npm
+          zsh-autosuggestions
+          zsh-syntax-highlighting
+          history-substring-search
+          )
+fi
+
+# plugins for computer
+if [[ "$MACHINE_TYPE" == "computer" ]]; then
+  plugins=(
+          git
+          zsh-nvm
+          node
+          npm
+          nvm
+          kubectl
+          zsh-autosuggestions
+          zsh-syntax-highlighting
+          history-substring-search
+          )
+fi
+
+# plugins=(
+#         git
+#         zsh-nvm
+#         node
+#         npm
+#         nvm
+#         kubectl
+#         zsh-autosuggestions
+#         zsh-syntax-highlighting
+#         history-substring-search
+#         )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,8 +110,6 @@ SAVEHIST=10000
 # Aliases
 source ~/.config/.dotfiles/aliases/aliases.zsh
 source ~/.config/.dotfiles/aliases/functions.zsh
-source ~/.config/.dotfiles/aliases/wsl_aliases.zsh
-source ~/.config/.dotfiles/aliases/dotnet.zsh
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -95,8 +122,19 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
 
 # For Loading the SSH key for wsl
-if [[ -n "$WSL_DISTRO_NAME" ]]; then
+if [[ "$WSL_DISTRO_NAME" ]]; then
+  source ~/.config/.dotfiles/aliases/wsl_aliases.zsh
   source ~/.config/.dotfiles/aliases/debian_aliases.zsh
   /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
   source $HOME/.keychain/$HOST-sh
+fi
+
+# plugins for server
+if [[ "$MACHINE_TYPE" == "server" ]]; then
+  source ~/.config/.dotfiles/aliases/debian_aliases.zsh
+fi
+
+# plugins for server
+if [[ "$MACHINE_TYPE" == "computer" ]]; then
+  source ~/.config/.dotfiles/aliases/dotnet.zsh
 fi
