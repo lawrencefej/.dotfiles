@@ -8,3 +8,5 @@ _dotnet_zsh_complete()
 }
 
 compctl -K _dotnet_zsh_complete dotnet
+
+export PATH="$PATH:$HOME/.dotnet/tools"
