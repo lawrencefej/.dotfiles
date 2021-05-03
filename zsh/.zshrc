@@ -78,6 +78,7 @@ source $ZSH/oh-my-zsh.sh
 # Paths
 path+=('/home/lawrence/.local/bin')
 path+=('/home/lawrence/.cargo/bin')
+export PATH=/usr/local/bin/:$PATH
 
 # Set Default Editor
 export VISUAL=vim
@@ -137,4 +138,5 @@ fi
 # plugins for server
 if [[ "$MACHINE_TYPE" == "computer" ]]; then
   source ~/.config/.dotfiles/aliases/dotnet.zsh
+  complete -C '/usr/local/bin/aws_completer' aws
 fi
