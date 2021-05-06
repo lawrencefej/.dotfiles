@@ -140,3 +140,5 @@ if [[ "$MACHINE_TYPE" == "computer" ]]; then
   source ~/.config/.dotfiles/aliases/dotnet.zsh
   complete -C '/usr/local/bin/aws_completer' aws
 fi
+
+complete -o nospace -C /usr/bin/terraform terraform
