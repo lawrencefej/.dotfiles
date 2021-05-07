@@ -61,3 +61,7 @@ fi
 # Add bat to cat
 alias cat='bat --paging=never'
 
+# ssh for kitty
+# if [[ "$KITTY_WINDOW_ID" ]]; then
+#     alias kssh='kitty +kitten ssh'
+# fi
