@@ -16,6 +16,13 @@ else
 fi
 # fi
 
+printf "\n🚀 Installing powerlevel10k\n"
+if [ -d "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+  printf "oh-my-zsh is already installed\n"
+else
+  sh -c "$(git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k)"
+fi
+# fi
 
 ###
 # Installing dotfiles
