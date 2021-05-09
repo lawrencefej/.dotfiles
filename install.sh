@@ -45,8 +45,8 @@ sh -c "$(curl -k -O -L https://github.com/Peltoche/lsd/releases/download/0.20.1/
 printf "\n🚀 Installing lsd\n"
 sudo dpkg -i lsd_0.20.1_amd64.deb
 
-if [ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
-fi
+# if [ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+# fi
 
 ###
 # Installing dotfiles
