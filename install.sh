@@ -22,7 +22,32 @@ if [ -d "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
 else
   sh -c "$(git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k)"
 fi
-# fi
+
+printf "\n🚀 Installing zsh-autosuggestions\n"
+if [ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
+  printf "oh-my-zsh is already installed\n"
+else
+  sh -c "$(git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions)"
+fi
+
+printf "\n🚀 Installing zsh-history-substring-search\n"
+if [ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-history-substring-search" ]; then
+  printf "oh-my-zsh is already installed\n"
+else
+  sh -c "$(git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-history-substring-search)"
+fi
+
+printf "\n🚀 Installing zsh-syntax-highlighting\n"
+if [ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+  printf "oh-my-zsh is already installed\n"
+else
+  sh -c "$(git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting)"
+fi
+
+printf "\n🚀 Installing lsd\n"
+sh -c "$(curl -k -O -L https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb)"
+sh -c "$(sudo dpkg -i lsd_0.20.1_amd64.deb)"
+
 
 ###
 # Installing dotfiles
