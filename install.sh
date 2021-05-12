@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ###
-# Install oh my zsh
+# Install ohmyzsh
 ###
 printf "\n🚀 Installing oh-my-zsh\n"
 if [ -d "${HOME}/.oh-my-zsh" ]; then
@@ -9,8 +9,10 @@ if [ -d "${HOME}/.oh-my-zsh" ]; then
 else
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-# fi
 
+###
+# Install powerlevel10k theme
+###
 printf "\n🚀 Installing powerlevel10k\n"
 if [ -d "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
   printf "oh-my-zsh is already installed\n"
@@ -18,6 +20,9 @@ else
   sh -c "$(git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k)"
 fi
 
+###
+# Install ohmyzsh plugins
+###
 printf "\n🚀 Installing zsh-autosuggestions\n"
 if [ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
   printf "oh-my-zsh is already installed\n"
@@ -45,20 +50,9 @@ sh -c "$(curl -k -O -L https://github.com/Peltoche/lsd/releases/download/0.20.1/
 printf "\n🚀 Installing lsd\n"
 sudo dpkg -i lsd_0.20.1_amd64.deb
 
-# if [ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
-# fi
-
 ###
 # Installing dotfiles
 ###
-# if ${INSTALL_DOTNET_TOOLS} ; then
-#   printf "\n🚀 Install ef core tools\n"
-#   dotnet tool install --global dotnet-ef
-# fi
-
-###
-# Installing dotfiles
-###
-printf "\n🚀 Installing dotfiles\n"
+printf "\n🚀 Installing zsh dotfiles\n"
 ln -sf "$(pwd)/zsh/.p10k.zsh" "${HOME}/.p10k.zsh"
 ln -sf "$(pwd)/zsh/.zshrc" "${HOME}/.zshrc"
