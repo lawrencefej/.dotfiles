@@ -76,8 +76,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # Paths
-path+=('$HOME/.local/bin')
-path+=('$HOME/.cargo/bin')
+path+=("$HOME/.local/bin")
+path+=("$HOME/.cargo/bin")
 export PATH=/usr/local/bin/:$PATH
 
 # Set Default Editor
