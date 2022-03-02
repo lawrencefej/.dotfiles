@@ -50,5 +50,3 @@ expkg () {
     export KUBECONFIG=$1
     return
 }
-
-cd ~
