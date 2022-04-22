@@ -127,6 +127,7 @@ if [[ "$WSL_DISTRO_NAME" ]]; then
   source ~/.config/.dotfiles/aliases/wsl_aliases.zsh
   source ~/.config/.dotfiles/aliases/debian_aliases.zsh
   /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
+  /usr/bin/keychain -q --nogui $HOME/.ssh/tricentis/tricentis
   source $HOME/.keychain/$HOST-sh
 fi
 
@@ -142,3 +143,8 @@ if [[ "$MACHINE_TYPE" == "computer" ]]; then
 fi
 
 complete -o nospace -C /usr/bin/terraform terraform
+
+# Port forward qas-master for RDP
+ssm-master() {
+	aws ssm start-session --target i-06a12acd647606419 --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["3389"], "localPortNumber":["9998"]}' --profile qas-master --region us-east-1
+}

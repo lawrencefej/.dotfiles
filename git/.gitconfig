@@ -1,3 +1,18 @@
+# ~/.gitconfig
 [user]
 	name = Lawrence
 	email = lawrencefej@gmail.com
+
+
+ # include for all .git projects under personnal/
+[includeIf "gitdir:~/projects/tricentis/"]
+	path = ~/projects/tricentis/.gitconfig-tricentis
+[includeIf "gitdir:~/projects/cms/"]
+	path = ~/projects/cms/.gitconfig-cms
+
+
+[core]
+excludesfile = ~/.gitignore      # valid everywhere
+[credential "https://github.cms.gov"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
