@@ -77,6 +77,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # Paths
 path+=("$HOME/.local/bin")
+path+=("$HOME/.local/bin/go/bin")
+export GOPATH=$HOME/go
 path+=("$HOME/.cargo/bin")
 export PATH=/usr/local/bin/:$PATH
 
