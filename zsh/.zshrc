@@ -150,3 +150,24 @@ complete -o nospace -C /usr/bin/terraform terraform
 ssm-master() {
 	aws ssm start-session --target i-06a12acd647606419 --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["3389"], "localPortNumber":["9998"]}' --profile qas-master --region us-east-1
 }
+
+# Port forward us-east bastion server
+ssm-qas-prod-us-east-1() {
+	aws ssm start-session --target i-0733d6b3505c589a0 --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["3389"],"localPortNumber":["9998"]}' --region us-east-1 --profile qas-production
+}
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/lawrence/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/lawrence/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lawrence/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/lawrence/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
