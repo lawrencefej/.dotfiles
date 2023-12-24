@@ -65,3 +65,20 @@ alias cat='bat --paging=never'
 # if [[ "$KITTY_WINDOW_ID" ]]; then
 #     alias kssh='kitty +kitten ssh'
 # fi
+
+# Terraform
+alias tf='terraform'
+alias tfi='terraform init'
+alias tfp='terraform plan'
+alias tfapply='terraform apply'
+alias tfdestroy='terraform destroy'
+alias tfval='terraform validate'
+
+# Terragrunt
+alias tg='terragrunt'
+alias tgi='terragrunt init'
+alias tgp='terragrunt plan'
+alias tgapply='terragrunt apply'
+alias tgdestroy='terragrunt destroy'
+alias tgval='terragrunt validate-inputs'
+alias tgvalstrict='terragrunt validate-inputs --terragrunt-strict-validate'
