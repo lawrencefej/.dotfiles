@@ -50,7 +50,7 @@ alias cpuinfo='lscpu'
 alias zsource='source ~/.zshrc'
 
 # Add color to TLDR
-alias tldr='tldr -t base16'
+# alias tldr='tldr -t base16'
 
 # plugins for computer
 if [[ "$MACHINE_TYPE" == "computer" ]]; then
@@ -70,15 +70,15 @@ alias cat='bat --paging=never'
 alias tf='terraform'
 alias tfi='terraform init'
 alias tfp='terraform plan'
-alias tfapply='terraform apply'
-alias tfdestroy='terraform destroy'
-alias tfval='terraform validate'
+alias tfa='terraform apply'
+alias tfd='terraform destroy'
+alias tfv='terraform validate'
 
 # Terragrunt
 alias tg='terragrunt'
 alias tgi='terragrunt init'
 alias tgp='terragrunt plan'
-alias tgapply='terragrunt apply'
-alias tgdestroy='terragrunt destroy'
-alias tgval='terragrunt validate-inputs'
-alias tgvalstrict='terragrunt validate-inputs --terragrunt-strict-validate'
+alias tga='terragrunt apply'
+alias tgd='terragrunt destroy'
+alias tgv='terragrunt validate-inputs'
+alias tgvs='terragrunt validate-inputs --terragrunt-strict-validate'

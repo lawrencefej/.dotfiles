@@ -11,3 +11,4 @@ set noswapfile
 set undodir=~/.config/.vim/undodir
 set undofile
 set incsearch
+set pastetoggle=<F10>
