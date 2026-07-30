@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [[ -n "$ZSH_PROFILE_STARTUP" ]]; then
+  zmodload zsh/zprof
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -28,9 +32,6 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
-export NVM_LAZY_LOAD=true
-export NVM_AUTO_USE=true
-
 # ZSH Plugins
 
 # plugins for server
@@ -49,11 +50,8 @@ fi
 if [[ "$MACHINE_TYPE" == "computer" ]]; then
   plugins=(
           git
-          zsh-nvm
           node
           npm
-          nvm
-          kubectl
           zsh-autosuggestions
           zsh-syntax-highlighting
           history-substring-search
@@ -124,8 +122,27 @@ export TLDR_DOWNLOAD_CACHE_LOCATION="https://tldr-pages.github.io/assets/tldr.zi
 source ~/.config/.dotfiles/aliases/aliases.zsh
 source ~/.config/.dotfiles/aliases/functions.zsh
 
+alias zsh-conda='ENABLE_CONDA_INIT=1 zsh'
+
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+    zle reset-prompt > /dev/null 2>&1 || true
+    [[ -z "$session" ]] && return
+    sesh connect "$session"
+  }
+}
+
+zle -N sesh-sessions
+bindkey -M emacs '\es' sesh-sessions
+bindkey -M vicmd '\es' sesh-sessions
+bindkey -M viins '\es' sesh-sessions
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -133,6 +150,13 @@ source ~/.config/.dotfiles/aliases/functions.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
+
+autoload -U compinit
+compinit -i
+
+if command -v talosctl >/dev/null 2>&1; then
+  source <(talosctl completion zsh)
+fi
 
 # For Loading the SSH key for wsl
 if [[ "$WSL_DISTRO_NAME" ]]; then
@@ -149,24 +173,38 @@ fi
 # plugins for server
 if [[ "$MACHINE_TYPE" == "computer" ]]; then
   source ~/.config/.dotfiles/aliases/dotnet.zsh
-  complete -C '/usr/local/bin/aws_completer' aws
+  source ~/.config/.dotfiles/aliases/gh.zsh
+  complete -C '/home/linuxbrew/.linuxbrew/bin/aws_completer' aws
 fi
 
 complete -o nospace -C /usr/bin/terraform terraform
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lawrence/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/lawrence/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/lawrence/miniconda3/etc/profile.d/conda.sh"
+if [[ -n "$ENABLE_CONDA_INIT" ]]; then
+    __conda_setup="$('/home/lawrence/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/home/lawrence/miniconda3/bin:$PATH"
+        if [ -f "/home/lawrence/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/lawrence/miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/lawrence/miniconda3/bin:$PATH"
+        fi
     fi
+    unset __conda_setup
 fi
-unset __conda_setup
 # <<< conda initialize <<<
 
-source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+source $HOME/.tenv.completion.zsh
+
+complete -o nospace -C /home/lawrence/.tenv/Terragrunt/0.99.5/terragrunt terragrunt tg tgi tgp tga tgd tgv tgvs
+
+if [[ -n "$ZSH_PROFILE_STARTUP" ]]; then
+  zprof
+fi
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
+complete -o nospace -C /home/linuxbrew/.linuxbrew/bin/tofu tofu

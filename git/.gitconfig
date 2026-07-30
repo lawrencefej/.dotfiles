@@ -4,9 +4,12 @@
 	email = lawrencefej@gmail.com
 [http]
 	sslVerify = false
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+[credential]
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+	helper =
+	helper = /usr/local/bin/git-credential-manager
+[credential "https://forgejo.home.lawrencefej.com"]
+	helper = manager
+	username = slickace
+	credentialStore = gpg
+    provider = generic

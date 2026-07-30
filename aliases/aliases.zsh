@@ -75,10 +75,23 @@ alias tfd='terraform destroy'
 alias tfv='terraform validate'
 
 # Terragrunt
-alias tg='terragrunt'
-alias tgi='terragrunt init'
-alias tgp='terragrunt plan'
-alias tga='terragrunt apply'
-alias tgd='terragrunt destroy'
-alias tgv='terragrunt validate-inputs'
-alias tgvs='terragrunt validate-inputs --terragrunt-strict-validate'
+unalias tg itg tgi tgp tga tgd tgv tgvs 2>/dev/null
+
+tg() {
+    local infisical_paths="${TG_INFISICAL_PATHS:-${TG_INFISICAL_PATH:-/tofu}}"
+    local infisical_args=()
+    local infisical_path
+
+    for infisical_path in ${(s.:.)infisical_paths}; do
+        infisical_args+=(--path="$infisical_path")
+    done
+
+    infisical run "${infisical_args[@]}" -- terragrunt "$@"
+}
+
+tgi() { tg init "$@"; }
+tgp() { tg plan "$@"; }
+tga() { tg apply "$@"; }
+tgd() { tg destroy "$@"; }
+tgv() { tg validate-inputs "$@"; }
+tgvs() { tg validate-inputs --terragrunt-strict-validate "$@"; }
